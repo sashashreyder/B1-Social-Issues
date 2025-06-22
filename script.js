@@ -19,6 +19,7 @@ const container = document.querySelector('.card-container');
 /* ---------- RENDER CARD ---------- */
 function renderCard(idx) {
   const { prompt, hint } = data[idx];
+
   container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   container.innerHTML = `
@@ -39,14 +40,17 @@ function renderCard(idx) {
       <p class="feedback" id="feedback"></p>
     </div>`;
 
+  document.getElementById('answerInput').focus();
   document.getElementById('submitBtn').addEventListener('click', checkAnswer);
   document.getElementById('nextBtn').addEventListener('click', nextCard);
 
-
-  const isMobile = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
-  if (isMobile) {
+  // mobile-specific hint toggle
+  if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
     const qmark = document.querySelector('.qmark');
     qmark.addEventListener('click', e => {
+      document.querySelectorAll('.qmark').forEach(t => {
+        if (t !== e.target) t.classList.remove('active');
+      });
       qmark.classList.toggle('active');
     });
   }
@@ -106,22 +110,6 @@ function nextCard() {
 container.addEventListener('keydown', e => {
   if (e.key === 'Enter') checkAnswer();
 });
-
-/* ---------- MOBILE HINT TOGGLE ---------- */
-const isMobile = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
-
-if (isMobile) {
-  document.addEventListener('click', e => {
-    const tips = document.querySelectorAll('.qmark');
-    tips.forEach(t => {
-      if (t !== e.target) t.classList.remove('active');
-    });
-
-    if (e.target.classList.contains('qmark')) {
-      e.target.classList.toggle('active');
-    }
-  });
-}
 
 /* ---------- INIT ---------- */
 renderCard(current);
