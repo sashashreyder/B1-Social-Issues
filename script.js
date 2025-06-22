@@ -41,6 +41,15 @@ function renderCard(idx) {
 
   document.getElementById('submitBtn').addEventListener('click', checkAnswer);
   document.getElementById('nextBtn').addEventListener('click', nextCard);
+
+
+  const isMobile = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+  if (isMobile) {
+    const qmark = document.querySelector('.qmark');
+    qmark.addEventListener('click', e => {
+      qmark.classList.toggle('active');
+    });
+  }
 }
 
 /* ---------- CHECK ---------- */
