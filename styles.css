@@ -194,6 +194,13 @@ body {
 .correct  { color: #4caf50; }
 .incorrect{ color: #ff5252; }
 
+@media (max-width: 500px) {
+  .qmark::after {
+    white-space: normal;
+    max-width: 240px;
+    line-height: 1.4;
+  }
+}
 
 
 

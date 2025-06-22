@@ -19,6 +19,7 @@ const container = document.querySelector('.card-container');
 /* ---------- RENDER CARD ---------- */
 function renderCard(idx) {
   const { prompt, hint } = data[idx];
+  container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   container.innerHTML = `
     <div class="card">
@@ -38,7 +39,6 @@ function renderCard(idx) {
       <p class="feedback" id="feedback"></p>
     </div>`;
 
-  document.getElementById('answerInput').focus();
   document.getElementById('submitBtn').addEventListener('click', checkAnswer);
   document.getElementById('nextBtn').addEventListener('click', nextCard);
 }
