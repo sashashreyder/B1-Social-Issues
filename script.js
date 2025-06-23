@@ -8,7 +8,7 @@ const data = [
   { word: 'Epidemic', prompt: 'Obesity has become a global ___.', answer: 'Epidemic', hint: 'Rapid spread of disease.' },
   { word: 'Stigmatized', prompt: 'To have another religion is still ___ in some cultures.', answer: 'Stigmatized', hint: 'Viewed negatively by society.' },
   { word: 'Equality', prompt: 'Gender ___ in the workplace is still a challenge.', answer: 'Equality', hint: 'The state of being equal in rights and opportunities.' },
-  { word: 'boost', prompt: 'Education ___ economic opportunities.', answer: 'boosts', hint: 'To improve or increase something.' }
+  { word: 'boosts', prompt: 'Education ___ economic opportunities.', answer: 'boosts', hint: 'To improve or increase something.' }
 ];
 
 let current = 0;
